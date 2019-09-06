@@ -25,4 +25,5 @@ Things you may want to cover:
 # Ruby on Rails Tutorial
 
 ## "hello, world!"
+## "hello, changed!"
 
