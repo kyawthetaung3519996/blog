@@ -1,0 +1,35 @@
+<%= form_with model: @article, local: true do |form| %>
+ 
+  <% if @article.errors.any? %>
+    <div id="error_explanation" class="alert alert-danger">
+      <p>
+        <%= pluralize(@article.errors.count, "error") %> prohibited
+        this article from being saved:
+      </p>
+      <ul>
+        <% @article.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :title, :class => "form-label" %>
+    <%= form.text_field :title, :class => "form-control" %>
+  </p>
+ 
+  <p>
+    <%= form.label :text, :class => "form-label" %>
+    <%= form.text_area :text, :class => "form-control" %>
+  </p>
+ 
+ <p>
+    <%= form.submit :Add, :class => "btn btn-success float-right" %>
+  </p>
+  <p>
+    <%= link_to 'Cancel', articles_path, :class => "btn btn-warning float-right mr-1" %>
+  </p>
+  
+ 
+<% end %>

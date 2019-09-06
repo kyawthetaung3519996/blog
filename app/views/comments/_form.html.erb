@@ -1,0 +1,13 @@
+<%= form_with(model: [ @article, @article.comments.build], local: true) do |form| %>
+<div class="row">
+    <div class="col-md-5">
+        <%= form.text_field :commenter, placeholder: "Commenter", :class => "form-control" %>
+    </div>
+    <div class="col-md-5">
+        <%= form.text_field :body, placeholder: "comment", :class => "form-control" %>
+    </div>
+    <div class="col-md-2">
+        <%= form.submit :save, :class => "btn btn-success btn-sm" %>
+    </div>
+</div>
+<% end %>

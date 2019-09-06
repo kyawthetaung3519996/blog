@@ -1,0 +1,26 @@
+
+<% provide(:post, "active") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <%= link_to 'back', articles_path, :class => "btn btn-primary mt-2" %>
+        </div>
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header card-title">
+                    <%= @article.title %>
+                </div>
+                <div class="card-body">
+                    <%= @article.text %>
+                </div>
+                <div class="card-footer">
+                    <%= link_to 'edit', edit_article_path(@article), :class => "btn btn-warning btn-sm" %>
+                    <%= link_to 'delete', article_path(@article), method: :delete, 
+                        data: { confirm: "Are you sure?"},
+                        :class => "btn btn-danger btn-sm" %>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+<% provide(:post, "active") %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <%= link_to 'new post', new_article_path, :class => "btn btn-success mt-2 btn-md" %>
+        </div>
+        <% @articles.each do |article| %>
+        <div class="col-md-7">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <strong><%= link_to article.title, article_path(article) %></strong>
+                </div>
+                <div class="card-body">
+                    <p><%= article.text %></p>
+                </div>
+                <div class="card-footer">
+                    <h5>Comments</h5>
+                    <%= render article.comments %>
+
+                </div>
+                <div class="card-footer">
+                    <h6>Add Comment</h6>
+                    <%= form_with(model: [ article, article.comments.build], local: true) do |form| %>
+                    <div class="row">
+                        <div class="col-md-5">
+                            <%= form.text_field :commenter, placeholder: "Commenter", :class => "form-control" %>
+                        </div>
+                        <div class="col-md-5">
+                            <%= form.text_field :body, placeholder: "comment", :class => "form-control" %>
+                        </div>
+                        <div class="col-md-2">
+                            <%= form.submit :save, :class => "btn btn-success btn-sm" %>
+                        </div>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    
+</div>
